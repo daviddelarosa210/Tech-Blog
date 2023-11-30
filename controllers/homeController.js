@@ -1,5 +1,6 @@
 // controllers/homeController.js
-const { Post, User, Comment } = require('../models');
+const path = require('path');
+const { Post, User, Comment } = require(path.join(__dirname, '..', 'models'));
 
 const homeController = {
   getHomePage: async (req, res) => {
