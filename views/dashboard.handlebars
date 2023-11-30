@@ -1,0 +1,27 @@
+<!-- views/dashboard.handlebars -->
+{{!< layouts/main}}
+
+<h1>Dashboard</h1>
+
+<h2>Your Posts</h2>
+{{#each posts}}
+  <div class="post">
+    <h3>{{title}}</h3>
+    <p>{{content}}</p>
+    <p>Posted on {{createdAt}}</p>
+    <a href="/post/{{id}}">Read More</a>
+    <form action="/dashboard/delete/{{id}}" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+    <a href="/dashboard/edit/{{id}}">Edit</a>
+  </div>
+{{/each}}
+
+<h2>Add New Post</h2>
+<form action="/dashboard/add" method="POST">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" required>
+  <label for="content">Content:</label>
+  <textarea id="content" name="content" required></textarea>
+  <button type="submit">Create Post</button>
+</form>
